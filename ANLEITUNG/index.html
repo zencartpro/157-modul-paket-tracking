@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Paket Tracking 2.8.0 für Zen-Cart 1.5.7 deutsch</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="content-language" content="de">
+<meta name="description" content="Modul zur Paket Tracking Integration für Zen-Cart 1.5.7 deutsch">
+<link rel="stylesheet" type="text/css" href="includes/css/stylesheet.css">  
+<script type="text/javascript" src="includes/jscript/jscript_tabs.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>Paket Tracking 2.8.0 für Zen Cart 1.5.7 deutsch</h1>
+</div>
+
+<div id="slidetabsmenu" style="display: none;">
+<ul>
+  <li> <a onClick="expandcontent('sc1', this)" href="javascript:void(0)"><span>Sinn und Zweck</span></a></li>
+  <li> <a onClick="expandcontent('sc2', this)" href="javascript:void(0)"><span>Installation</span></a></li>
+
+   <li> <a onClick="expandcontent('sc4', this)" href="javascript:void(0)"><span>Deinstallation</span></a></li>
+  <li> <a onClick="expandcontent('sc5', this)" href="javascript:void(0)"><span>Download</span></a></li>
+  <li> <a onClick="expandcontent('sc6', this)" href="javascript:void(0)"><span>Unterstützen</span></a></li>
+ </ul>
+</div>
+<br style="clear: both;">
+
+<!--Begin tabcontainer-->
+<div id="tabcontentcontainer">
+
+<!--Begin sc1-->
+<div class="tabcontent" id="sc1" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Sinn und Zweck dieses Moduls</h2>
+
+  <p>Kunden bekommen die Möglichkeit, Pakete verschiedener Versandunternehmen zu tracken.<br>
+Für den Admin sind die Trackinglinks ebenfalls in der Administration ersichtlich. <br>
+Auch die Updatemails bei Änderung des Bestellstatus enthalten den Trackinglink.<br>
+Es sind bis zu 6 verschiedene Versandunternehmen möglich, deren   Trackinglinks in der Zen Cart Administration geändert werden können.<br>
+Voreingestellt sind DHL, DPD, UPS, Hermes, Deutsche Post Brief und Österreichische Post.<br>
+Das Modul unterstützt nun auch Deutsche Post Brief, deren Trackinglink zusätzliche Felder wie Tag, Monat und Jahr der Übergabe enthalten muss.
+Optional kann auch eine Sidebox   mit Schnellzugriff auf die Bestellhistorie mit dem Trackinglink angeboten werden.<br>
+Für den Kunden enthält die Bestellhistory ebenfalls den Trackinglink.<br/>
+Die Suche in der Administration unter Kunden > Bestellungen sucht auch nach eingegebenen Trackingnummern.
+<br>
+Das Modul ist vollständig multilingual, sowohl im Admin als auch im Frontend. <br>
+<br>
+Changelog 2.8.0:<br>
+- Anpassungen für 1.5.7 und PHP 8<br>
+<br>
+Changelog 2.7.5:<br>
+- Anleitung und Versionsnummer aktualisiert, keine sonstigen Änderungen<br>
+<br>
+Changelog 2.7.4:<br>
+- explizite Angabe der Trackinglinks, um auch in Thunderbird clickbare Trackingslinks zu garantieren<br>
+<br>
+Changelog 2.7.3:<br>
+- Codeänderungen aus 1.5.6e integriert</p>
+  <p>Changelog 2.7.2:<br>
+- Bugfixes für Adminkopie des Statusupdatemails wurde nicht gesandt<br>
+- fehlende Sprachdefinitionen für den Adminbereich ergänzt
+  </p>
+  <p>Changelog 2.7.1:<br>
+    - Bugfixes für Paket Tracking Sidebox<br/>
+  <br>
+    Changelog 2.7.0:<br>
+    - Anpassungen für Zen Cart 1.5.6<br>
+    - Anpassungen für PHP 7.3<br>
+  <br>
+    Changelog 2.6.3:<br>
+    - Anpassungen für Zen Cart 1.5.5f<br>
+    - Anpassungen für MySQL 5.7 strict mode<br>
+    - eigenes Suchfeld für Trackingnummern in der Bestellübersicht
+    <br>
+    <br>Changelog 2.6.2:<br>
+    - Anpassungen für PHP 7.1<br/>
+    - Trackingnummer kann auch ohne Statusänderung aktualisiert werden
+    <br>
+    <br>Changelog 2.6.1:<br>
+    - Anpassungen für Zen Cart 1.5.5e deutsch<br>
+    <br>
+    Changelog 2.6:<br>
+    - Anpassungen für Zen Cart 1.5.5 deutsch<br>
+    - Installer von SQL Patch auf automatische Installation mit Modulversionaktualisierung umgestellt 
+    <br/>
+    - Suchfunktion unter Kunden > Bestellungen erweitert so dass Bestellungen anhand der Trackingnummer gefunden werden
+    <br>
+    - DPD Trackinglink aktualisiert</p>
+<p>Changelog 2.5:<br>
+    - Anpassungen für Zen Cart 1.5.4 deutsch
+</p>
+<p>Changelog 2.4:<br>
+    - Anpassungen, um Trackinglinks zu unterstützen, die neben der Tracking ID auch das Datum der Übergabe erfordern
+  </p>
+  <p>Changelog 2.3:<br>
+    - Anpassungen für Zen Cart 1.5.3 deutsch<br>
+    - Trackinglink für Österreichische Post aktualisiert
+  </p>
+<h3>Copyright,  Lizenz</h3>
+<p>Copyright dieser deutschen Anpassung/Anleitung für Zen Cart 1.5.7 deutsch<br>
+(c) 2016-2022 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)<br>
+<br>
+Modifikation des Moduls <a href="https://www.zen-cart.com/downloads.php?do=file&id=75" target="_blank">Ty Package Tracker</a> von Ty Lieu </p>
+<p> Portions Copyright (c) 2003 osCommerce<br>
+  Portions Copyright     (c) 2003-2022 Zen Cart</p>
+<p>This contribution is subject to version 3.0 of the GPL license available through the world-wide-web at the following url:<br>
+  <a href="http://www.zen-cart-pro.at/license/3_0.txt">http://www.zen-cart-pro.at/license/3_0.txt</a></p>
+</div>
+</div>
+</div>
+<!--End sc1-->
+
+<!--Begin sc2-->
+<div class="tabcontent" id="sc2" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Installation</h2>
+<h3>Voraussetzungen</h3>
+  <br>
+  Dieses Modul ist<strong> nur für die deutsche Zen Cart 1.5.7 Version geeignet</strong></p>
+  <br><br/>
+  <strong>WICHTIG:</strong><br>
+   
+    <br>
+Für den Einbau dieses Moduls sollten Sie über folgende Werkzeuge verfügen:<br>
+  <br>
+  <strong>1) Ein guter Texteditor </strong><br>
+  Damit ist nicht das in Windows enthaltene Notepad oder Microsoft Word gemeint.<br>
+  Sie benötigen einen Texteditor, der utf-8 versteht und auch im Format utf-8 ohne BOM abspeichern kann.<br>
+  Meine Empfehlung: <a href="http://www.ultraedit.com/loc/de/index_de.html" target="_blank">UltraEdit</a> (kostenlose 30 Tage Testversion verfügbar)<br>
+  Ebenfalls gut geeignet ist der kostenlose Texteditor <a href="http://notepad-plus.sourceforge.net/de/site.htm" target="_blank">Notepad++ </a><br>
+<p><strong>2) Ein Tool zum Vergleichen von Dateien</strong><br>
+  Bei der Installation dieses Moduls ist es erforderlich, dass Sie den     Inhalt einiger Ihrer bestehenden Zen Cart Dateien mit dem Inhalt der     neuen Moduldateien vergleichen und die Änderungen zusammenführen     ("mergen").<br>
+  Meine Empfehlung: <a href="http://www.scootersoftware.com/" target="_blank">BeyondCompare</a> (kostenlose 30 Tage Testversion verfügbar)<br>
+  Ebenfalls gut geeignet ist das kostenlose Programm <a href="http://winmerge.org/" target="_blank">WinMerge </a></p>
+<p><br>
+  <strong>Empfehlung:</strong><br>
+  <br>
+  Dieses Modul erst in einem Testsystem einbauen und dort   konfigurieren/testen und endgültig an die eigenen Wünsche anpassen.        Erst dann in einem Liveshop einsetzen! Sichern Sie unbedingt alle   Dateien Ihres Shops per FTP und sichern Sie die Datenbank mit phpMyAdmin   oder anderen geeigneten Tools!</p>
+<div id="warning"><b>WICHTIG</b><br>
+Vor dem Einbau dieser Änderungen:<br>
+BACKUP von Shop und Datenbank machen! <br>
+Keine Haftung, Verwendung auf eigene Gefahr!<br>
+BACKUP gemacht? Ok, dann weiterlesen...
+</div>
+<p>Die Installation erfolgt in folgenden Schritten. Halten Sie diesen Ablauf ein!</p>
+<p>1.<br>
+  Geänderte Dateien des Moduls einspielen:<br>
+  Im Ordner NEUE DATEIEN dieses Downloads  den Ordner   DEINADMIN auf den Namen Ihres admin Verzeichnisses   umbenennen.<br>
+  Alle Ordner namens DEINTEMPLATE auf das im Shop aktive Template umbenennen (z.B. responsive_classic) <br>
+  Dann die Ordner/Dateien in der vorgegebenen Struktur ins Zen Cart Verzeichnis hochladen.<br>
+  Achtung: Dabei werden bestehende Dateien überschrieben!<br>
+  Daher:<br>
+  Sollten Sie bereits einmal Änderungen an diesen Dateien vorgenommen   haben (z.B. durch den Einbau anderer Erweiterungen), dann laden Sie   diese Dateien keinesfalls einfach so hoch.<br>
+  Stattdessen vergleichen Sie alle Dateien im Ordner GEAENDERTE DATEIEN   mit den   entsprechenden Dateien in Ihrem Shop und nehmen Sie die   Änderungen   manuell per WinMerge oder BeyondCompare vor.<br>
+  Dann spielen Sie die geänderten Dateien in der gezeigten Struktur ein.<br>
+  <br>
+  2.<br>
+Neue Dateien des Moduls einspielen:<br>
+Im Ordner NEUE DATEIEN dieses Downloads den Ordner   DEINADMIN auf den Namen Ihres admin Verzeichnisses   umbenennen.<br>
+Alle Ordner namens DEINTEMPLATE auf das im Shop aktive Template umbenennen (z.B. responsive_classic) <br>
+Dann die Ordner/Dateien in der vorgegebenen Struktur ins Zen Cart Verzeichnis hochladen.<br>
+Dadurch werden keine bestehenden Dateien überschrieben</p>
+<p>3.<br>
+  In die Zen Cart Administration einloggen, Sie sollten oben eine grüne Erfolgsmeldung sehen.
+  <br>
+  <br>
+  4.<br>
+  In der Zen Cart Administration ist nun unter Konfiguration der neue Menüpunkt Paket Tracking vorhanden.<br>
+  Passen Sie hier die Namen und Trackinglinks auf die von Ihnen verwendeten Versandunternehmen an.<br>
+  Stellen Sie nur die auf True, die Sie auch wirklich verwenden/anbieten wollen.<br>
+  Falls Sie das Modul Super Orders  oder Edit Orders  im Einsatz   haben können Sie hier auch einstellen, ob Sie später in der   Administration eine Verknüpfung zum Bearbeiten von Bestellungen mit   Super Orders oder Edit Orders haben wollen. Dies wird nur ab Version 3.0   dieser Module unterstützt!<br>
+  Ebenso können Sie hier einstellen, wieviele bisherige Bestellungen in der Tracking Sidebox angezeigt werden sollen.<br>
+  <br>
+  5.<br>
+  OPTIONAL<br>
+  Paket Tracking liefert eine Sidebox mit, in der eingeloggten Kunden   ihre letzten Bestellungen mit Link zur Bestellhistorie angezeigt werden.   Dadurch haben die Kunden schnell und einfach die Möglichkeit, auf die   Tracking Links ihrer Pakete zuzugreifen und den Status ihrer Lieferung   zu überprüfen.<br>
+  Wenn Sie diese Sidebox nutzen wollen, aktivieren Sie sie wie gewohnt unter Tools &gt; Boxlayout. <br>
+  <br>
+  6.<br>
+  Probieren Sie nun die Eingabe einer Trackingnummer und das Aktualisieren einer Bestellung damit aus: <br>
+  Beim Bearbeiten einer Bestellung haben Sie nun ein neues Eingabefeld für die Eingabe der Tracking ID.<br>
+  <br>
+  Beispiel:<br>
+  Diese Bestellung haben Sie mit DPD ausgeliefert und die Trackingnummer ist 06210008745645A<br>
+  Tragen Sie die Trackingnummer    im Feld Tracking ID beim Versandunternehmen DPD ein.<br>
+  Lassen Sie die Felder "Kundenbenachrichtigung"  angekreuzt.<br>
+  Stellen Sie dann beim Status auf den Status um, den Sie beim Verschicken verwenden, z.B. "verschickt"<br>
+  Wenn Sie dann auf "aktualisieren" clicken bekommt der Kunde das   normale Bestellstatusupdatemail, das zusätzlich die Tracking Nummer und   auch einen Link    zum direkten Tracken dieser ID auf der DPD Website enthält:<br>
+  https://tracking.dpd.de/parcelstatus?locale=de_DE&amp;query=06210008745645A<br>
+  <br>
+  Wenn Sie das Feld "Kunde wurde benachrichtigt - Email" nicht ankreuzen wird kein   Statusupdatemail verschickt, die Trackingnummer und der Link sind aber   für den Kunden in der Bestellhistorie ersichtlich.<br>
+  Wenn Sie einen speziellen Kommentar hinzufügen möchten, schreiben Sie wie gewohnt ins   Textfeld. <br>
+  Das Feld &quot;Weitere Kommentare&quot; lassen Sie in jedem Fall angekreuzt!</p>
+<p>7.<br>
+  Das Versandunternehmen 6 ist reserviert für Briefsendungen mit der deutschen Post und auch bereits darauf voreingestellt.<br>
+  Nur bei diesem Anbieter müssen die Felder Tag, Monat und Jahr der Übergabe ausgefüllt werden. <br>
+  Tag und Monat ohne führende Null eingeben, wurde das Paket z.B. am 23.06.2021 übergeben, dann:<br>
+  Tag: 23<br>
+  Monat:6<br>
+  Jahr: 2021
+  <br>
+  Bei allen anderen Anbietern lassen Sie diese Felder leer!</p>
+<h3>&nbsp;</h3>
+  </div>
+</div>
+</div>
+
+<!--End sc2-->
+
+
+
+<!--Begin sc4-->
+<div class="tabcontent" id="sc4" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>DEINSTALLATION</h2>
+<p>1.<br>
+Die Datei uninstall.sql im Ordner UNINSTALL mit einem Texteditor öffen und den Inhalt kopieren</p>
+<p>2.<br>
+  Zen Cart Administration öffnen und unter Tools &gt; SQL Patches installieren den Inhalt ins Feld hineinkopieren und absenden.<br>
+  Achtung: Damit entfernen Sie auch alle etwaigen bereits hinterlegten Tracking IDs in der Bestellhistory.
+</p>
+<p>3.<br>
+  Alle von diesem Modul neu angelegten Dateien vom Server löschen.<br>
+  Alle von diesem Modul geänderten Dateien wieder mit den Originalversionen bzw. den Dateien Ihres Backups ersetzen.</p>
+</div>
+</div>
+</div>
+<!--End sc4-->
+
+<!--Begin sc5-->
+<div class="tabcontent" id="sc5" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+<h2>Download</h2>
+<p>Dieses Modul steht kostenloas auf Github zum Download bereit.</p>
+<p>Freigegebene getestete Versionen für den Einsatz in Livesystemen ausschließlich auf Github unter Releases herunterladen:<br/>
+https://github.com/zencartpro/157-modul-paket-tracking/releases</p>
+</div>
+</div>
+</div>
+<!--End sc5-->
+
+<!--Begin sc6-->
+<div class="tabcontent" id="sc6" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Unterstützen</h2>
+<p>Sie finden dieses Modul nützlich?</p>
+<p>Die deutsche Zen-Cart Version steht kostenlos zur Verfügung. Ebenso dieses Modul.<br/>
+Um unsere laufenden Kosten (Server, Lizenzgebühren, usw.) abzudecken freuen wir uns über jede Unterstützung.<br/>
+Auch für die Zeit, die für die Weiterentwicklung neuer Versionen aufgewendet wird.</p>
+<p><a href="https://donorbox.org/spende-fur-die-weiterentwicklung-der-deutschen-zen-cart-version" target="_blank"><img src="https://www.zen-cart-pro.at/zencartpro-donation-white.png" alt="Spende für die Weiterentwicklung der deutschen Zen Cart Version" title="Spende für die Weiterentwicklung der deutschen Zen Cart Version"></a></p>
+<br/><br/>
+<p>Du bist Entwickler und willst helfen, die deutsche Zen Cart Version noch besser zu machen?<br>
+  Beteilige Dich auf Github:<br>
+  <a href="https://github.com/zencartpro" target="_blank"><strong>https://github.com/zencartpro</strong></a></p>
+<br/><br/>
+</div>
+</div>
+</div>
+<!--End sc6-->
+</div>
+<div id="footer">
+Ein Modul von <a href="https://www.zen-cart-pro.at" target="_blank">www.zen-cart-pro.at</a> - Die deutsche Zen Cart Version
+</div>
+</div>
+<!--end tabcontainer-->
+<script type="text/javascript">document.getElementById('sc1').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc2').style.display = 'none';</script>
+
+<script type="text/javascript">document.getElementById('sc4').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc5').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc6').style.display = 'none';</script>
+<script type="text/javascript">ShowTabs()</script>
+<script type="text/javascript">
+// We only show the tab links if JavaScript is available/active.
+<!--
+if (document.getElementById("slidetabsmenu") != null) {
+  document.getElementById('slidetabsmenu').style.display = "block";
+}
+//-->
+</script>
+
+</body></html>
