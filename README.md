@@ -5,6 +5,7 @@ Hinweis:
 Freigegebene getestete Versionen für den Einsatz in Livesystemen ausschließlich unter Releases herunterladen:
 * https://github.com/zencartpro/157-modul-paket-tracking/releases
 
+Features:
 * Kunden bekommen die Möglichkeit, Pakete verschiedener Versandunternehmen zu tracken.
 * Für den Admin sind die Trackinglinks ebenfalls in der Administration ersichtlich. 
 * Auch die Updatemails bei Änderung des Bestellstatus enthalten den Trackinglink.
