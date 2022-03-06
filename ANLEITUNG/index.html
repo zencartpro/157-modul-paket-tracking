@@ -41,7 +41,7 @@
 Für den Admin sind die Trackinglinks ebenfalls in der Administration ersichtlich. <br>
 Auch die Updatemails bei Änderung des Bestellstatus enthalten den Trackinglink.<br>
 Es sind bis zu 6 verschiedene Versandunternehmen möglich, deren   Trackinglinks in der Zen Cart Administration geändert werden können.<br>
-Voreingestellt sind DHL, DPD, UPS, Hermes, Deutsche Post Brief und Österreichische Post.<br>
+Voreingestellt sind DHL, DPD, UPS, GLS, Deutsche Post Brief und Österreichische Post.<br>
 Das Modul unterstützt nun auch Deutsche Post Brief, deren Trackinglink zusätzliche Felder wie Tag, Monat und Jahr der Übergabe enthalten muss.
 Optional kann auch eine Sidebox   mit Schnellzugriff auf die Bestellhistorie mit dem Trackinglink angeboten werden.<br>
 Für den Kunden enthält die Bestellhistory ebenfalls den Trackinglink.<br/>
@@ -51,6 +51,8 @@ Das Modul ist vollständig multilingual, sowohl im Admin als auch im Frontend. <
 <br>
 Changelog 2.8.0:<br>
 - Anpassungen für 1.5.7 und PHP 8<br>
+- Nicht verwendete TY_TRACKER Config entfernt
+<br>
 <br>
 Changelog 2.7.5:<br>
 - Anleitung und Versionsnummer aktualisiert, keine sonstigen Änderungen<br>
@@ -173,8 +175,7 @@ Dadurch werden keine bestehenden Dateien überschrieben</p>
   4.<br>
   In der Zen Cart Administration ist nun unter Konfiguration der neue Menüpunkt Paket Tracking vorhanden.<br>
   Passen Sie hier die Namen und Trackinglinks auf die von Ihnen verwendeten Versandunternehmen an.<br>
-  Stellen Sie nur die auf True, die Sie auch wirklich verwenden/anbieten wollen.<br>
-  Falls Sie das Modul Super Orders  oder Edit Orders  im Einsatz   haben können Sie hier auch einstellen, ob Sie später in der   Administration eine Verknüpfung zum Bearbeiten von Bestellungen mit   Super Orders oder Edit Orders haben wollen. Dies wird nur ab Version 3.0   dieser Module unterstützt!<br>
+  Stellen Sie nur die auf True, die Sie auch wirklich verwenden/anbieten wollen.<br>  
   Ebenso können Sie hier einstellen, wieviele bisherige Bestellungen in der Tracking Sidebox angezeigt werden sollen.<br>
   <br>
   5.<br>
@@ -200,10 +201,10 @@ Dadurch werden keine bestehenden Dateien überschrieben</p>
 <p>7.<br>
   Das Versandunternehmen 6 ist reserviert für Briefsendungen mit der deutschen Post und auch bereits darauf voreingestellt.<br>
   Nur bei diesem Anbieter müssen die Felder Tag, Monat und Jahr der Übergabe ausgefüllt werden. <br>
-  Tag und Monat ohne führende Null eingeben, wurde das Paket z.B. am 23.06.2021 übergeben, dann:<br>
+  Tag und Monat ohne führende Null eingeben, wurde das Paket z.B. am 23.02.2022 übergeben, dann:<br>
   Tag: 23<br>
-  Monat:6<br>
-  Jahr: 2021
+  Monat:2<br>
+  Jahr: 2022
   <br>
   Bei allen anderen Anbietern lassen Sie diese Felder leer!</p>
 <h3>&nbsp;</h3>

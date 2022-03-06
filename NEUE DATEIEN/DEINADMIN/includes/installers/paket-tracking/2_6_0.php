@@ -1,10 +1,10 @@
 <?php
 /**
  * @package Paket Tracking
- * @copyright Copyright 2003-2019 Zen Cart Development Team
+ * @copyright Copyright 2003-2022 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: 2_6_0.php  2019-06-30 19:46:51Z webchills $
+ * @version $Id: 2_6_0.php  2022-03-06 09:46:51Z webchills $
  */
  
 $db->Execute(" SELECT @gid:=configuration_group_id
@@ -24,8 +24,8 @@ $db->Execute("INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_title, c
 ('Package Tracking - Carrier 3 Name', 'CARRIER_NAME_3', 'UPS', 'Enter name of Carrier 3 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: USPS)', @gid, 8, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 3 Tracking Link', 'CARRIER_LINK_3', 'http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displ ayed=1&TypeOfInquiryNumber=T&loc=de_DE&InquiryNumber1=', 'Enter the tracking link of Carrier 3<br /> <br /><strong>Example:</strong>http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displ ayed=1&TypeOfInquiryNumber=T&loc=de_DE&InquiryNumber1=', @gid, 9, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 4 Status', 'CARRIER_STATUS_4', 'False', 'Enable Tracking for Carrier 4<br /><br />Set to false if you do NOT want Carrier 4 to be displayed on Admin and Customer page.', @gid, 10, now(), now(), NULL, 'zen_cfg_select_option(array(\'True\', \'False\'),'),
-('Package Tracking - Carrier 4 Name', 'CARRIER_NAME_4', 'Hermes', 'Enter name of Carrier 4 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: blank)', @gid, 11, now(), now(), NULL, NULL),
-('Package Tracking - Carrier 4 Tracking Link', 'CARRIER_LINK_4', 'http://tracking.hlg.de/Tracking.jsp?TrackID=', 'Enter the tracking link of Carrier 4<br /> <br /><strong>Example:</strong> http://tracking.hlg.de/Tracking.jsp?TrackID=', @gid, 12, now(), now(), NULL, NULL),
+('Package Tracking - Carrier 4 Name', 'CARRIER_NAME_4', 'GLS', 'Enter name of Carrier 4 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: blank)', @gid, 11, now(), now(), NULL, NULL),
+('Package Tracking - Carrier 4 Tracking Link', 'CARRIER_LINK_4', 'https://gls-group.eu/AT/de/paket-verfolgen?match=', 'Enter the tracking link of Carrier 4<br /> <br /><strong>Example:</strong> http://tracking.hlg.de/Tracking.jsp?TrackID=', @gid, 12, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 5 Status', 'CARRIER_STATUS_5', 'False', 'Enable Tracking for Carrier 5<br /><br />Set to false if you do NOT want Carrier 5 to be displayed on Admin and Customer page.', @gid, 13, now(), now(), NULL, 'zen_cfg_select_option(array(\'True\', \'False\'),'),
 ('Package Tracking - Carrier 5 Name', 'CARRIER_NAME_5', 'Post Austria', 'Enter name of Carrier 5 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: blank)', @gid, 14, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 5 Tracking Link', 'CARRIER_LINK_5', 'http://www.post.at/sendungsverfolgung.php/details?pnum1=', 'Enter the tracking link of Carrier 5<br /> <br /><strong>Example:</strong> http://www.post.at/tnt_query.php?pnum1=', @gid, 15, now(), now(), NULL, NULL),
@@ -35,8 +35,7 @@ $db->Execute("INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_title, c
 ('Package Tracking - Carrier 6 Tracking Link Part 2', 'CARRIER_LINK_6_PART2', '&form.einlieferungsdatum_tag=', 'Enter part 2 of the tracking link of Carrier 6 (for the day)<br /> <br /><strong>Example:</strong> &form.einlieferungsdatum_tag=', @gid, 19, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 6 Tracking Link Part 3', 'CARRIER_LINK_6_PART3', '&form.einlieferungsdatum_monat=', 'Enter part 3 of the tracking link of Carrier 6 (for the month)<br /> <br /><strong>Example:</strong> &form.einlieferungsdatum_monat=', @gid, 20, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 6 Tracking Link Part 4', 'CARRIER_LINK_6_PART4', '&form.einlieferungsdatum_jahr=', 'Enter part 4 of the tracking link of Carrier 6 (for the year)<br /> <br /><strong>Example:</strong> &form.einlieferungsdatum_jahr=', @gid, 21, now(), now(), NULL, NULL),
-('Package Tracking - Max display for Track Order sidebox', 'MAX_DISPLAY_PRODUCTS_IN_TRACK_ORDERS_BOX', '3', 'The maximum number of orders to display on the Track Order sidebox ', @gid, 22, now(), now(), NULL, NULL),                               
-('Package Tracking - Switch for Edit Orders v3.0 or Super Orders v3.0', 'TY_TRACKER', 'False', 'If you have the either Edit Orders v3.0 or Super Orders v3.0 installed, set this option to TRUE so that the Ty Package Tracker fields will display in Edit Orders or Super Orders<br><br><strong><font color=red>YOU MUST HAVE EDIT ORDERS v3.0 OR SUPER ORDERS v3.0 INSTALLED TO USE THIS FEATURE!!</font></strong><br><br>\(Activating this flag without the required mod\(s\) installed <strong>WILL CAUSE ERRORS IN YOUR STORE!!!!</strong>\)', @gid, 23, now(), now(), NULL, 'zen_cfg_select_option(array(\'True\', \'False\'),')");
+('Package Tracking - Max display for Track Order sidebox', 'MAX_DISPLAY_PRODUCTS_IN_TRACK_ORDERS_BOX', '3', 'The maximum number of orders to display on the Track Order sidebox ', @gid, 22, now(), now(), NULL, NULL)");                             
 
 
 $db->Execute("REPLACE INTO ".TABLE_CONFIGURATION_LANGUAGE." (configuration_title, configuration_key, configuration_description, configuration_language_id) VALUES
@@ -61,9 +60,7 @@ $db->Execute("REPLACE INTO ".TABLE_CONFIGURATION_LANGUAGE." (configuration_title
 ('Paket Tracking - Versandunternehmen 6 Tracking Link - Teil 3', 'CARRIER_LINK_6_PART3','Geben Sie den dritten Teil des Tracking Links von Versandunternehmen 6 ein. Dieser Teil bezieht sich auf den Monat der Aufgabe<br /> Beispiel: &form.einlieferungsdatum_monat', 43),
 ('Paket Tracking - Versandunternehmen 6 Tracking Link - Teil 4', 'CARRIER_LINK_6_PART4','Geben Sie den viertrn Teil des Tracking Links von Versandunternehmen 6 ein. Dieser Teil bezieht sich auf das Jahr der Aufgabe<br /> Beispiel: &form.einlieferungsdatum_jahr', 43),
 ('Paket Tracking - Versandunternehmen 6 Status', 'CARRIER_STATUS_6','Wollen Sie das Tracking für Versandunternehmen 6 aktivieren?<br />Auf false setzen, wenn Sie NICHT wollen, dass Versandunternehmen 6 auf der Admin- und der Kundenseite erscheint.', 43),
-('Paket Tracking - Sidebox Einstellung', 'MAX_DISPLAY_PRODUCTS_IN_TRACK_ORDERS_BOX','Maximale Anzahl der Bestellungen, die in der Bestellverfolgungs-Sidebox angezeigt werden sollen.', 43),
-('Paket Tracking - Super Orders oder Edit Orders', 'TY_TRACKER','Haben Sie das Modul Super Orders oder Edit Orders installiert? Dann stellen Sie hier auf TRUE, damit die Paket Tracking Felder in den Super Orders oder Edit Orders Eingabemasken angezeigt werden. Nur auf TRUE stellen, wenn Sie diese Zusatzmodule installiert haben!', 43)");
-
+('Paket Tracking - Sidebox Einstellung', 'MAX_DISPLAY_PRODUCTS_IN_TRACK_ORDERS_BOX','Maximale Anzahl der Bestellungen, die in der Bestellverfolgungs-Sidebox angezeigt werden sollen.', 43)");
 
 
 // add columns to order table
