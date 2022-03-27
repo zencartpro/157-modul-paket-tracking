@@ -7,7 +7,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: functions_osh_update.php for Paket Tracking 2022-03-04 20:31:42Z webchills $
+ * @version $Id: functions_osh_update.php for Paket Tracking 2022-03-27 14:46:42Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
     exit('Invalid Access');
@@ -107,8 +107,8 @@ function zen_update_orders_history($orders_id, $message = '', $updated_by = null
         
         $orders_current_status = $osh_info->fields['orders_status'];
         $orders_new_status = (int)$orders_new_status;
-       
-        if (($orders_new_status != -1 && $orders_current_status != $orders_new_status) || !empty($email_message)) {
+       // allow saving new tracking id without new order status
+        if (($orders_new_status != -1 && $orders_current_status != $orders_new_status) || !empty($email_message) || !empty($_POST['track_id1']) || !empty($_POST['track_id2']) || !empty($_POST['track_id3']) || !empty($_POST['track_id4']) || !empty($_POST['track_id5']) || !empty($_POST['track_id6'])) {
             if ($orders_new_status == -1) {
                 $orders_new_status = $orders_current_status;
             }

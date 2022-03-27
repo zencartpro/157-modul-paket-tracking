@@ -10,7 +10,7 @@ Features:
 * Für den Admin sind die Trackinglinks ebenfalls in der Administration ersichtlich. 
 * Auch die Updatemails bei Änderung des Bestellstatus enthalten den Trackinglink.
 * Es sind bis zu 6 verschiedene Versandunternehmen möglich, deren Trackinglinks in der Zen Cart Administration geändert werden können.
-* Voreingestellt sind DHL, DPD, UPS, Hermes, Deutsche Post Brief und Österreichische Post.
+* Voreingestellt sind DHL, DPD, UPS, GLS, Deutsche Post Brief und Österreichische Post.
 * Das Modul unterstützt nun auch Deutsche Post Brief, deren Trackinglink zusätzliche Felder wie Tag, Monat und Jahr der Übergabe enthalten muss. 
 * Optional kann auch eine Sidebox mit Schnellzugriff auf die Bestellhistorie mit dem Trackinglink angeboten werden.
 * Für den Kunden enthält die Bestellhistory ebenfalls den Trackinglink.
