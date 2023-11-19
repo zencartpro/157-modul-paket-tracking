@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-11-14 15:42:51Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-11-19 19:42:51Z webchills $
  */
 require('includes/application_top.php');
 
@@ -1345,7 +1345,6 @@ if (!empty($action) && $order_exists === true) {
                           'o.delivery_street_address',
                           'o.delivery_city',
                           'o.delivery_postcode',
-                          'o.ip_address',
 			                    'otrack.track_id1',
                           'otrack.track_id2',
                           'otrack.track_id3',
