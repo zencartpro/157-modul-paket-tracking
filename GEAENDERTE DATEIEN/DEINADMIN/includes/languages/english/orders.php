@@ -1,11 +1,11 @@
 <?php
 /**
  * Zen Cart German Specific (158 code in 157 / zencartpro adaptations)
- * @copyright Copyright 2003-2022 Zen Cart Development Team
+ * @copyright Copyright 2003-2023 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2022-03-04 20:52:25Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-11-28 20:52:25Z webchills $
  */
 
 define('HEADING_TITLE', 'Orders');
@@ -130,6 +130,7 @@ define('WARNING_PAYMENT_MODULE_NOTIFICATIONS_DISABLED','The configuration of the
 
 
 //Begin Paket Tracking 
+define('TRACKING_ID', 'Tracking ID:');
 define('TEXT_SEARCH_FOR_TRACKING_ID', 'Search for Tracking ID');
 define('TEXT_SEARCH_FOR_TRACKING_ID_PLACEHOLDER', 'Tracking ID');
 define('TABLE_HEADING_TRACKING_ID', 'Tracking ID');

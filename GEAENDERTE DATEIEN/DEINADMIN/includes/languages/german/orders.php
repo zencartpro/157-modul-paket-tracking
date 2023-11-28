@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-11-04 16:50:14Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-11-28 19:50:14Z webchills $
  */
 
 define('HEADING_TITLE', 'Bestellungen');
@@ -133,6 +133,7 @@ define('SUCCESS_EMAIL_SENT', 'Email %s an Kunden gesandt');
 define('WARNING_PAYMENT_MODULE_DOESNT_EXIST','Das Zahlungsmodul dieser Bestellung (%s) gibt es nicht mehr.');
 define('WARNING_PAYMENT_MODULE_NOTIFICATIONS_DISABLED','Die Konfiguration des Zahlungsmoduls dieser Bestellung (%s) wurde geändert. Es sind keine Rückerstattungen möglich.');
 //Begin Paket Tracking
+define('TRACKING_ID', 'Tracking ID:');
 define('TEXT_SEARCH_FOR_TRACKING_ID', 'Suche nach Trackingnummer');
 define('TEXT_SEARCH_FOR_TRACKING_ID_PLACEHOLDER', 'Trackingnummer');
 define('TABLE_HEADING_TRACKING_ID', 'Tracking ID');
