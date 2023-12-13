@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-11-28 19:50:14Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-12-13 12:50:14Z webchills $
  */
 
 define('HEADING_TITLE', 'Bestellungen');
@@ -22,7 +22,7 @@ define('TABLE_HEADING_ORDERS_ID', 'ID');
 
 define('TEXT_BILLING_SHIPPING_MISMATCH', 'Rechnungs- und Versandadresse stimmen nicht überein ');
 
-define('TABLE_HEADING_ZONE_INFO','Zone');
+define('TABLE_HEADING_ZONE_INFO','Land');
 
 define('TABLE_HEADING_ORDER_TOTAL', 'Bestellsumme');
 define('TABLE_HEADING_DATE_PURCHASED', 'Bestelldatum');
@@ -137,12 +137,10 @@ define('TRACKING_ID', 'Tracking ID:');
 define('TEXT_SEARCH_FOR_TRACKING_ID', 'Suche nach Trackingnummer');
 define('TEXT_SEARCH_FOR_TRACKING_ID_PLACEHOLDER', 'Trackingnummer');
 define('TABLE_HEADING_TRACKING_ID', 'Tracking ID');
-define('TABLE_HEADING_TRACKING_DAY', 'Tag der Übergabe');
-define('TABLE_HEADING_TRACKING_MONTH', 'Monat der Übergabe');
-define('TABLE_HEADING_TRACKING_YEAR', 'Jahr der Übergabe');
+
 define('TABLE_HEADING_CARRIER_NAME', 'Versandunternehmen');
 define('ENTRY_ADD_TRACK', 'Tracking Info hinzufügen');
-define('ENTRY_ADD_TRACK_INFO', 'Die Felder Tag, Monat und Jahr sind nur für bestimmte Versandunternehmen nötig, z.B. Deutsche Post Brief. Ansonsten leer lassen!');
+
 define('IMAGE_TRACK', 'Tracking ID hinzufügen');
 define('SELECT_ORDER_LIST', 'Gehe zu Bestellung: ');
 define('HEADING_TITLE_ORDER_DETAILS', 'Bestellung Nr. ');

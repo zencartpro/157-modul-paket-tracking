@@ -7,7 +7,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: functions_osh_update.php for Paket Tracking 2023-11-23 22:10:42Z webchills $
+ * @version $Id: functions_osh_update.php for Paket Tracking 2023-12-13 13:50:42Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
     exit('Invalid Access');
@@ -130,9 +130,7 @@ function zen_update_orders_history($orders_id, $message = '', $updated_by = null
         $track_id4 = !empty($_POST['track_id4']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id4'])) : ''; 
         $track_id5 = !empty($_POST['track_id5']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id5'])) : ''; 
         $track_id6 = !empty($_POST['track_id6']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id6'])) : '';  
-        $track_day = !empty($_POST['track_day']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_day'])) : '';  
-        $track_month = !empty($_POST['track_month']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_month'])) : '';
-        $track_year = !empty($_POST['track_year']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_year'])) : '';  
+       
             
             $notify_comments = '';
 	    $comments = '';
@@ -146,7 +144,7 @@ function zen_update_orders_history($orders_id, $message = '', $updated_by = null
               if (zen_not_null($track_id3)) { $notify_comments .= "" .PT_EMAIL_YOURID ." " . CARRIER_NAME_3 . " Tracking ID " .PT_EMAIL_YOURIDIS ." " . $track_id3 . " \n\n<br />" .PT_EMAIL_LINKINFO ." \n<br /><a href=" . CARRIER_LINK_3 . $track_id3 . ">" . CARRIER_LINK_3 . $track_id3 . "</a>\n\n<br />" .PT_EMAIL_24HOURS ."" . "\n\n<br />"; }
               if (zen_not_null($track_id4)) { $notify_comments .= "" .PT_EMAIL_YOURID ." " . CARRIER_NAME_4 . " Tracking ID " .PT_EMAIL_YOURIDIS ." " . $track_id4 . " \n\n<br />" .PT_EMAIL_LINKINFO ." \n<br /><a href=" . CARRIER_LINK_4 . $track_id4 . ">" . CARRIER_LINK_4 . $track_id4 . "</a>\n\n<br />" .PT_EMAIL_24HOURS ."" . "\n\n<br />"; }
               if (zen_not_null($track_id5)) { $notify_comments .= "" .PT_EMAIL_YOURID ." " . CARRIER_NAME_5 . " Tracking ID " .PT_EMAIL_YOURIDIS ." " . $track_id5 . " \n\n<br />" .PT_EMAIL_LINKINFO ." \n<br /><a href=" . CARRIER_LINK_5 . $track_id5 . ">" . CARRIER_LINK_5 . $track_id5 . "</a>\n\n<br />" .PT_EMAIL_24HOURS ."" . "\n\n<br />"; }
-              if (zen_not_null($track_id6)) { $notify_comments .= "" .PT_EMAIL_YOURID ." " . CARRIER_NAME_6 . " Tracking ID " .PT_EMAIL_YOURIDIS ." " . $track_id6 . " \n\n<br />" .PT_EMAIL_LINKINFO ." \n<br /><a href=" . CARRIER_LINK_6_PART1 . $track_id6 . CARRIER_LINK_6_PART2 . $track_day . CARRIER_LINK_6_PART3 . $track_month . CARRIER_LINK_6_PART4 . $track_year . ">" . CARRIER_LINK_6_PART1 . $track_id6 . CARRIER_LINK_6_PART2 . $track_day . CARRIER_LINK_6_PART3 . $track_month . CARRIER_LINK_6_PART4 . $track_year . "</a>\n\n<br />" .PT_EMAIL_24HOURS ."" . "\n\n<br />"; }
+              if (zen_not_null($track_id6)) { $notify_comments .= "" .PT_EMAIL_YOURID ." " . CARRIER_NAME_6 . " Tracking ID " .PT_EMAIL_YOURIDIS ." " . $track_id6 . " \n\n<br />" .PT_EMAIL_LINKINFO ." \n<br /><a href=" . CARRIER_LINK_6 . $track_id6 . ">" . CARRIER_LINK_6 . $track_id6 . "</a>\n\n<br />" .PT_EMAIL_24HOURS ."" . "\n\n<br />"; }
                 
                 $notify_comments = "\n".$notify_comments."\n";
                 
@@ -279,10 +277,8 @@ function zen_update_orders_history($orders_id, $message = '', $updated_by = null
                 'track_id3' => zen_db_input($track_id3),
                 'track_id4' => zen_db_input($track_id4),
                 'track_id5' => zen_db_input($track_id5),
-                'track_id6' => zen_db_input($track_id6),
-                'track_day' => zen_db_input($track_day),
-                'track_month' => zen_db_input($track_month),
-                'track_year' => zen_db_input($track_year)
+                'track_id6' => zen_db_input($track_id6)
+               
             );
             $GLOBALS['zco_notifier']->notify('ZEN_UPDATE_ORDERS_HISTORY_BEFORE_INSERT', array(), $osh_sql);
     

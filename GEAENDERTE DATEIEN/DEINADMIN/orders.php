@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-11-28 19:43:51Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-12-13 13:43:51Z webchills $
  */
 require('includes/application_top.php');
 
@@ -77,29 +77,29 @@ if (!empty($oID) && !empty($action)) {
   $zco_notifier->notify('NOTIFY_ADMIN_ORDER_PREDISPLAY_HOOK', $oID, $action);
 }
 
-        // -----
-        // Determine which of the 'Notify Customer' radio buttons should be selected initially,
-        // based on configuration setting in 'My Store'.  Set a default, just in case that configuration
-        // setting isn't set!
-        //
-        if (!defined('NOTIFY_CUSTOMER_DEFAULT')) define('NOTIFY_CUSTOMER_DEFAULT', '1');
-        switch (NOTIFY_CUSTOMER_DEFAULT) {
-            case '0':
-                $notify_email = false;
-                $notify_no_email = true;
-                $notify_hidden = false;
-                break;
-            case '-1':
-                $notify_email = false;
-                $notify_no_email = false;
-                $notify_hidden = true;
-                break;
-            default:
-                $notify_email = true;
-                $notify_no_email = false;
-                $notify_hidden = false;
-                break;
-        }
+// -----
+// Determine which of the 'Notify Customer' radio buttons should be selected initially,
+// based on configuration setting in 'My Store'.  Set a default, just in case that configuration
+// setting isn't set!
+//
+if (!defined('NOTIFY_CUSTOMER_DEFAULT')) define('NOTIFY_CUSTOMER_DEFAULT', '1');
+switch (NOTIFY_CUSTOMER_DEFAULT) {
+    case '0':
+        $notify_email = false;
+        $notify_no_email = true;
+        $notify_hidden = false;
+        break;
+    case '-1':
+        $notify_email = false;
+        $notify_no_email = false;
+        $notify_hidden = true;
+        break;
+    default:
+        $notify_email = true;
+        $notify_no_email = false;
+        $notify_hidden = false;
+        break;
+}
 
 if (!empty($action) && $order_exists === true) {
     $order = new order($oID);
@@ -231,9 +231,7 @@ if (!empty($action) && $order_exists === true) {
         $track_id4 = !empty($_POST['track_id4']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id4'])) : ''; 
         $track_id5 = !empty($_POST['track_id5']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id5'])) : ''; 
         $track_id6 = !empty($_POST['track_id6']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id6'])) : '';  
-        $track_day = !empty($_POST['track_day']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_day'])) : '';  
-        $track_month = !empty($_POST['track_month']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_month'])) : '';
-        $track_year = !empty($_POST['track_year']) ? str_replace(" ", "", (int)zen_db_prepare_input($_POST['track_year'])) : '';     
+        
         
 // End Paket Tracking
       $comments = !empty($_POST['comments']) ? zen_db_prepare_input($_POST['comments']) : '';
@@ -709,7 +707,7 @@ if (!empty($action) && $order_exists === true) {
             <tr>
               <td class="main"><strong><?php echo ENTRY_PAYMENT_METHOD; ?></strong></td>
               <td class="main"><?php echo $order->info['payment_method']; ?></td>
-        </tr>
+            </tr>
 	 <tr>
            <td class="main"><strong>Device: </strong></td>
            <td class="main"><?php echo $order->info['order_device']; ?></td>
@@ -862,6 +860,7 @@ if (!empty($action) && $order_exists === true) {
             }
             ?>
             <tr>
+
 <?php if ($show_including_tax)  { ?>
               <td colspan="8">
 <?php } else { ?>
@@ -958,11 +957,11 @@ if (!empty($action) && $order_exists === true) {
                     <td class="text-center hidden-xs">
                         <?php
                         if ($item['customer_notified'] == '1') {
-                          echo zen_image(DIR_WS_ICONS . 'tick.gif', TEXT_YES);
-                        } else if ($item['customer_notified'] == '-1') {
-                          echo zen_image(DIR_WS_ICONS . 'locked.gif', TEXT_HIDDEN);
+                          echo zen_icon('tick', TEXT_YES, 'lg');
+                        } elseif ($item['customer_notified'] == '-1') {
+                          echo zen_icon('locked', TEXT_HIDDEN, 'lg');
                         } else {
-                          echo zen_image(DIR_WS_ICONS . 'unlocked.gif', TEXT_VISIBLE);
+                          echo zen_icon('unlocked', TEXT_VISIBLE, 'lg');
                         }
                         ?>
                     </td>
@@ -975,38 +974,38 @@ if (!empty($action) && $order_exists === true) {
 	$display_track_id .= (empty($orders_history->fields['track_id3']) ? '' : CARRIER_NAME_3 . ": <a href=" . CARRIER_LINK_3 . nl2br(zen_output_string_protected($orders_history->fields['track_id3'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id3'])) . "</a>&nbsp;" );
 	$display_track_id .= (empty($orders_history->fields['track_id4']) ? '' : CARRIER_NAME_4 . ": <a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . "</a>&nbsp;" );
 	$display_track_id .= (empty($orders_history->fields['track_id5']) ? '' : CARRIER_NAME_5 . ": <a href=" . CARRIER_LINK_5 . nl2br(zen_output_string_protected($orders_history->fields['track_id5'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id5'])) . "</a>&nbsp;" );
- 	$display_track_id .= (empty($orders_history->fields['track_id6']) ? '' : CARRIER_NAME_6 . ": <a href=" . CARRIER_LINK_6_PART1 . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . CARRIER_LINK_6_PART2 . nl2br(zen_output_string_protected($orders_history->fields['track_day'])) . CARRIER_LINK_6_PART3 . nl2br(zen_output_string_protected($orders_history->fields['track_month'])) . CARRIER_LINK_6_PART4 . nl2br(zen_output_string_protected($orders_history->fields['track_year'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . "</a>&nbsp;" );
+ 	$display_track_id .= (empty($orders_history->fields['track_id6']) ? '' : CARRIER_NAME_6 . ": <a href=" . CARRIER_LINK_6 . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . "</a>&nbsp;" );
         echo '            <td>' . $display_track_id . '</td>' . "\n";
 // END PAKET TRACKING -------------------------------------------------------------------                    
                     ?>
 <?php
-          // -----
-          // A watching observer can provide an associative array in the form:
-          //
-          // $extra_data = array(
-          //     array(
-          //       'align' => $alignment,    // One of 'center', 'right', or 'left' (optional)
-          //       'text' => $value
-          //     ),
-          // );
-          //
-          // Observer note:  Be sure to check that the $p2/$extra_data value is specifically (bool)false before initializing, since
-          // multiple observers might be injecting content!
-          //
-          $extra_data = false;
-          $zco_notifier->notify('NOTIFY_ADMIN_ORDERS_STATUS_HISTORY_EXTRA_COLUMN_DATA', $orders_history->fields, $extra_data);
-          if (is_array($extra_data)) {
-              foreach ($extra_data as $data_info) {
-                  $align = (isset($data_info['align'])) ? (' text-' . $data_info['align']) : '';
-        ?>
-                        <td class="smallText<?php echo $align; ?>"><?php echo $data_info['text']; ?></td>
-        <?php
-              }
-          }
+                    // -----
+                    // A watching observer can provide an associative array in the form:
+                    //
+                    // $extra_data = array(
+                    //     array(
+                    //       'align' => $alignment,    // One of 'center', 'right', or 'left' (optional)
+                    //       'text' => $value
+                    //     ),
+                    // );
+                    //
+                    // Observer note:  Be sure to check that the $p2/$extra_data value is specifically (bool)false before initializing, since
+                    // multiple observers might be injecting content!
+                    //
+                    $extra_data = false;
+                    $zco_notifier->notify('NOTIFY_ADMIN_ORDERS_STATUS_HISTORY_EXTRA_COLUMN_DATA', $orders_history->fields, $extra_data);
+                    if (is_array($extra_data)) {
+                        foreach ($extra_data as $data_info) {
+                            $align = (isset($data_info['align'])) ? (' text-' . $data_info['align']) : '';
+                  ?>
+                                  <td class="smallText<?php echo $align; ?>"><?php echo $data_info['text']; ?></td>
+                  <?php
+                        }
+                    }
 ?>
                     <td>
-<?php 
-                        if ($first) { 
+<?php
+                        if ($first) {
                            echo nl2br(zen_output_string_protected($item['comments'] ?? ''));
                            $first = false;
                         } else {
@@ -1015,9 +1014,6 @@ if (!empty($action) && $order_exists === true) {
 ?>
                     </td>
                     <td class="text-center hidden-xs"><?php echo (!empty($item['updated_by'])) ? $item['updated_by'] : '&nbsp;'; ?></td>
-					
-
-                    
                   </tr>
                   <?php
                 }
@@ -1049,7 +1045,7 @@ if (!empty($action) && $order_exists === true) {
 
           <!-- Begin Paket Tracking  -->
           <div class="form-group">
-          	<label class="col-sm-3 control-label"><?php echo ENTRY_ADD_TRACK; ?><br/><span class="smallText"><?php echo ENTRY_ADD_TRACK_INFO; ?></span></label>
+          	<label class="col-sm-3 control-label"><?php echo ENTRY_ADD_TRACK; ?></label>
 	<div class="col-sm-9"><table border="0" cellpadding="3" cellspacing="0">          
 		
 		<tr valign="top">
@@ -1060,9 +1056,7 @@ if (!empty($action) && $order_exists === true) {
 					
 						<th class="text-left"><strong><?php echo TABLE_HEADING_CARRIER_NAME; ?></strong></th>
 						<th class="text-left"><strong><?php echo TABLE_HEADING_TRACKING_ID; ?></strong></th>
-						<th class="text-left"><strong><?php echo TABLE_HEADING_TRACKING_DAY; ?></strong></th>
-						<th class="text-left"><strong><?php echo TABLE_HEADING_TRACKING_MONTH; ?></strong></th>
-						<th class="text-left"><strong><?php echo TABLE_HEADING_TRACKING_YEAR; ?></strong></th>
+						
 					</tr>
 					</thead>
             <tbody>
@@ -1070,54 +1064,42 @@ if (!empty($action) && $order_exists === true) {
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_1; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id1', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+
 					</tr>
 					<?php } ?>
 					<?php if (CARRIER_STATUS_2 == 'True') { ?>
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_2; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id2', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+			
 					</tr>
 					<?php } ?>
 					<?php if (CARRIER_STATUS_3 == 'True') { ?>
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_3; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id3', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+
 					</tr>
 					<?php } ?>
 					<?php if (CARRIER_STATUS_4 == 'True') { ?>
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_4; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id4', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+	
 					</tr>
 					<?php } ?>
 					<?php if (CARRIER_STATUS_5 == 'True') { ?>
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_5; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id5', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+			
 					</tr>
 					<?php } ?>
 					<?php if (CARRIER_STATUS_6 == 'True') { ?>
 					<tr>
 						<td><strong><?php echo CARRIER_NAME_6; ?></strong></td>
 						<td valign="top"><?php echo zen_draw_input_field('track_id6', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_day', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_month', '', 'class="form-control"'); ?></td>
-						<td valign="top"><?php echo zen_draw_input_field('track_year', '', 'class="form-control"'); ?></td>
+						
 					</tr>
 					<?php } ?>
 				</table>
@@ -1243,7 +1225,7 @@ if (!empty($action) && $order_exists === true) {
         $extra_legends = '';
         $zco_notifier->notify('NOTIFY_ADMIN_ORDERS_MENU_LEGEND', [], $extra_legends);
 ?>
-        <div class="row"><?php echo TEXT_LEGEND . ' ' . zen_image(DIR_WS_IMAGES . 'icon_status_red.gif', TEXT_BILLING_SHIPPING_MISMATCH, 10, 10) . ' ' . TEXT_BILLING_SHIPPING_MISMATCH . $extra_legends; ?></div>
+        <div class="row"><?php echo TEXT_LEGEND . ' ' . zen_icon('status-red', TEXT_BILLING_SHIPPING_MISMATCH) . ' ' . TEXT_BILLING_SHIPPING_MISMATCH . $extra_legends; ?></div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 configurationColumnLeft">
             <table id="orders-table" class="table table-hover">
@@ -1320,7 +1302,7 @@ if (!empty($action) && $order_exists === true) {
                 </tr>
               </thead>
               <tbody>
-<?php
+                  <?php
 // Only one or the other search
 // create search_orders_products filter
                   $search = '';
@@ -1449,16 +1431,17 @@ if (!empty($action) && $order_exists === true) {
 
                     $show_difference = '';
                     if (!empty($orders->fields['delivery_name']) && (strtoupper($orders->fields['delivery_name']) !== strtoupper($orders->fields['billing_name']))) {
-                      $show_difference = zen_image(DIR_WS_IMAGES . 'icon_status_red.gif', TEXT_BILLING_SHIPPING_MISMATCH, 10, 10) . '&nbsp;';
+                      $show_difference = zen_icon('status-red', TEXT_BILLING_SHIPPING_MISMATCH) . '&nbsp;';
                     }
                     if (!empty($orders->fields['delivery_street_address']) && (strtoupper($orders->fields['delivery_street_address']) !== strtoupper($orders->fields['billing_street_address']))) {
-                      $show_difference = zen_image(DIR_WS_IMAGES . 'icon_status_red.gif', TEXT_BILLING_SHIPPING_MISMATCH, 10, 10) . '&nbsp;';
+                      $show_difference = zen_icon('status-red', TEXT_BILLING_SHIPPING_MISMATCH) . '&nbsp;';
                     }
                     //-Additional "difference" icons can be added on a per-order basis and/or additional icons to be added to the "action" column.
                     $extra_action_icons = '';
                     $zco_notifier->notify('NOTIFY_ADMIN_ORDERS_SHOW_ORDER_DIFFERENCE', [], $orders->fields, $show_difference, $extra_action_icons);
 
                     $show_payment_type = $orders->fields['payment_module_code'] . '<br>' . $orders->fields['shipping_module_code'];
+
                     $product_details = '';
                     if ($quick_view_popover_enabled) {
                         $sql = "SELECT op.orders_products_id, op.products_quantity AS qty, op.products_name AS name, op.products_model AS model
@@ -1478,16 +1461,16 @@ if (!empty($action) && $order_exists === true) {
                                   }
                                 }
                             }
-                        $product_details .= '<hr>'; // add HR
-                      }
-                      $product_details = rtrim($product_details);
-                      $product_details = preg_replace('~<hr>$~', '', $product_details); // remove last HR
-                      $product_details = nl2br($product_details);
+                            $product_details .= '<hr>'; // add HR
+                        }
+                        $product_details = rtrim($product_details);
+                        $product_details = preg_replace('~<hr>$~', '', $product_details); // remove last HR
+                        $product_details = nl2br($product_details);
                     }
                     ?>
                 <td class="dataTableContent text-center"><?php echo $show_difference . $orders->fields['orders_id']; ?></td>
                 <td class="dataTableContent"><?php echo $show_payment_type; ?></td>
-                <td class="dataTableContent"><?php echo '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'cID=' . $orders->fields['customers_id'], 'NONSSL') . '">' . zen_image(DIR_WS_ICONS . 'preview.gif', ICON_PREVIEW . ' ' . TABLE_HEADING_CUSTOMERS) . '</a>&nbsp;' . $orders->fields['customers_name'] . ($orders->fields['customers_company'] !== '' ? '<br>' . $orders->fields['customers_company'] : ''); ?></td>
+                <td class="dataTableContent"><?php echo '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'cID=' . $orders->fields['customers_id'], 'NONSSL') . '"><i class="fa-solid fa-magnifying-glass"></i></a>&nbsp;' . $orders->fields['customers_name'] . ($orders->fields['customers_company'] !== '' ? '<br>' . $orders->fields['customers_company'] : ''); ?></td>
 <?php if ($show_zone_info) { ?>
                 <td class="dataTableContent text-left">
 <?php echo $orders->fields['delivery_country']; ?>
@@ -1558,16 +1541,19 @@ if (!empty($action) && $order_exists === true) {
   }
 ?>
 
-                <td class="dataTableContent noprint text-right dataTableButtonCell">
+                <td class="dataTableContent noprint text-right actions dataTableButtonCell">
+                  <div class="btn-group">
                     <?php
-                    echo '<a href="' . zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(['oID', 'action']) . 'oID=' . $orders->fields['orders_id'] . '&action=edit', 'NONSSL') . '">' . zen_image(DIR_WS_IMAGES . 'icon_edit.gif', ICON_EDIT) . '</a>' . $extra_action_icons;
+                    echo '<a href="' . zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(['oID', 'action']) . 'oID=' . $orders->fields['orders_id'] . '&action=edit', 'NONSSL') . '" class="btn btn-sm btn-default btn-edit" data-toggle="tooltip" title="' . ICON_EDIT . '">' .
+                      zen_icon('pencil', hidden: true) .
+                    '</a>' . $extra_action_icons;
                     ?>
-                    &nbsp;
+                    </div>
                     <?php
                     if (isset($oInfo) && is_object($oInfo) && ($orders->fields['orders_id'] == $oInfo->orders_id)) {
-                      echo zen_image(DIR_WS_IMAGES . 'icon_arrow_right.gif');
+                      echo zen_icon('caret-right', '', '2x', true);
                     } else {
-                      echo '<a href="' . zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(['oID']) . 'oID=' . $orders->fields['orders_id'], 'NONSSL') . '">' . zen_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>';
+                      echo '<a href="' . zen_href_link(FILENAME_ORDERS, zen_get_all_get_params(['oID']) . 'oID=' . $orders->fields['orders_id'], 'NONSSL') . '" data-toggle="tooltip" title="' . IMAGE_ICON_INFO . '" role="button">' . zen_icon('circle-info', '', '2x', true, false) . '</a>';
                     }
                     ?>&nbsp;</td>
                 </tr>
@@ -1637,8 +1623,11 @@ if (!empty($action) && $order_exists === true) {
                         zen_draw_label(ENTRY_STATUS, 'statusUpdateSelect', 'class="control-label"') .
                         zen_draw_order_status_dropdown('statusUpdateSelect', $oInfo->orders_status, '', 'onChange="this.form.submit();" id="statusUpdateSelect" class="form-control"') . "\n" .
                         '</fieldset></form>' . "\n"];
+
                     $contents[] = ['text' => '<br>' . TEXT_DATE_ORDER_CREATED . ' ' . zen_date_short($oInfo->date_purchased)];
-                    $contents[] = ['text' => '<br>' . $oInfo->customers_email_address];
+                    $contents[] = ['text' => '<br>' . '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'cID=' . $oInfo->customers_id, 'NONSSL') . '">' . $oInfo->customers_email_address . '</a>' ];
+                   
+                    
                     if (zen_not_null($oInfo->last_modified)) {
                       $contents[] = ['text' => TEXT_DATE_ORDER_LAST_MODIFIED . ' ' . zen_date_short($oInfo->last_modified)];
                     }
@@ -1737,6 +1726,8 @@ if (!empty($action) && $order_exists === true) {
             jQuery('[data-toggle="popover"]').popover({html:true,sanitize: true});
         })
     </script>
+
+
     <!-- footer //-->
     <div class="footer-area">
       <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>

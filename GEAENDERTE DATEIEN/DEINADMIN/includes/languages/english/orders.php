@@ -5,7 +5,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-11-28 20:52:25Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2023-12-13 12:52:25Z webchills $
  */
 
 define('HEADING_TITLE', 'Orders');

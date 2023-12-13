@@ -1,5 +1,5 @@
 #############################################################################################
-# Paket Tracking 2.8.0 Uninstall - 2022-03-04 - webchills
+# Paket Tracking 3.0.0 Uninstall - 2023-12-13 - webchills
 # NUR AUSFÜHREN WENN SIE DAS MODUL VOLLSTÄNDIG AUS DER DATENBANK ENTFERNEN WOLLEN!!!!!
 # Entfernt auch Datenbankeinträge älterer Paket Tracking Versionen
 # !!!! SIE ENTFERNEN DAMIT AUCH DIE BEI BESTELLUNGEN BEREITS HINTERLEGTEN TRACKING IDS !!!!!
@@ -11,9 +11,6 @@ ALTER TABLE orders_status_history DROP COLUMN track_id3;
 ALTER TABLE orders_status_history DROP COLUMN track_id4;
 ALTER TABLE orders_status_history DROP COLUMN track_id5;
 ALTER TABLE orders_status_history DROP COLUMN track_id6;
-ALTER TABLE orders_status_history DROP COLUMN track_day;
-ALTER TABLE orders_status_history DROP COLUMN track_month;
-ALTER TABLE orders_status_history DROP COLUMN track_year;
 DELETE FROM configuration WHERE configuration_key LIKE '%PAKETTRACKING_MODUL_VERSION%';
 DELETE FROM configuration WHERE configuration_title LIKE '%PT -%';
 DELETE FROM configuration WHERE configuration_title LIKE '%Package Tracking -%';

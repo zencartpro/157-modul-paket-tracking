@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Paket Tracking 2.9.0 für Zen-Cart 1.5.7 deutsch</title>
+<title>Paket Tracking 3.0.0 für Zen-Cart 1.5.7 deutsch</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="content-language" content="de">
@@ -12,7 +12,7 @@
 <body>
 <div id="wrapper">
 <div id="header">
-<h1>Paket Tracking 2.9.0 für Zen Cart 1.5.7 deutsch</h1>
+<h1>Paket Tracking 3.0.0 für Zen Cart 1.5.7 deutsch</h1>
 </div>
 
 <div id="slidetabsmenu" style="display: none;">
@@ -41,13 +41,17 @@
 Für den Admin sind die Trackinglinks ebenfalls in der Administration ersichtlich. <br>
 Auch die Updatemails bei Änderung des Bestellstatus enthalten den Trackinglink.<br>
 Es sind bis zu 6 verschiedene Versandunternehmen möglich, deren   Trackinglinks in der Zen Cart Administration geändert werden können.<br>
-Voreingestellt sind DHL, DPD, UPS, GLS, Deutsche Post Brief und Österreichische Post.<br>
-Das Modul unterstützt nun auch Deutsche Post Brief, deren Trackinglink zusätzliche Felder wie Tag, Monat und Jahr der Übergabe enthalten muss.
+Voreingestellt sind DHL, DPD, UPS, GLS, Deutsche Post und Österreichische Post.<br>
 Optional kann auch eine Sidebox   mit Schnellzugriff auf die Bestellhistorie mit dem Trackinglink angeboten werden.<br>
 Für den Kunden enthält die Bestellhistory ebenfalls den Trackinglink.<br/>
-Die Suche in der Administration unter Kunden > Bestellungen sucht auch nach eingegebenen Trackingnummern.
+Die Suche in der Administration unter Kunden > Bestellungen sucht in einem eigenen Suchfeld nach eingegebenen Trackingnummern.
 <br>
 Das Modul ist vollständig multilingual, sowohl im Admin als auch im Frontend. <br>
+<br>
+Changelog 3.0.0:<br>
+- Zusatzeingabefelder für Tag, Monat und Jahr entfernt, da von der Deutschen Post so nicht mehr unterstützt<br>
+- Versandunternehmen 6 als normales Versandunternehmen Deutsche Post umkonfiguriert
+<br>
 <br>
 Changelog 2.9.0:<br>
 - Anpassungen für 1.5.7g 
@@ -205,16 +209,6 @@ Dadurch werden keine bestehenden Dateien überschrieben</p>
   Wenn Sie das Feld "Kunde wurde benachrichtigt - Email" nicht ankreuzen wird kein   Statusupdatemail verschickt, die Trackingnummer und der Link sind aber   für den Kunden in der Bestellhistorie ersichtlich.<br>
   Wenn Sie einen speziellen Kommentar hinzufügen möchten, schreiben Sie wie gewohnt ins   Textfeld. <br>
   Das Feld &quot;Weitere Kommentare&quot; lassen Sie in jedem Fall angekreuzt!</p>
-<p>7.<br>
-  Das Versandunternehmen 6 ist reserviert für Briefsendungen mit der deutschen Post und auch bereits darauf voreingestellt.<br>
-  Nur bei diesem Anbieter müssen die Felder Tag, Monat und Jahr der Übergabe ausgefüllt werden. <br>
-  Tag und Monat ohne führende Null eingeben, wurde das Paket z.B. am 23.02.2022 übergeben, dann:<br>
-  Tag: 23<br>
-  Monat:2<br>
-  Jahr: 2022
-  <br>
-  Bei allen anderen Anbietern lassen Sie diese Felder leer!</p>
-<h3>&nbsp;</h3>
   </div>
 </div>
 </div>
@@ -248,7 +242,7 @@ Die Datei uninstall.sql im Ordner UNINSTALL mit einem Texteditor öffen und den 
 <div class="textcontent">
 <div class="regularlist">
 <h2>Download</h2>
-<p>Dieses Modul steht kostenloas auf Github zum Download bereit.</p>
+<p>Dieses Modul steht kostenlos auf Github zum Download bereit.</p>
 <p>Freigegebene getestete Versionen für den Einsatz in Livesystemen ausschließlich auf Github unter Releases herunterladen:<br/>
   <a href="https://github.com/zencartpro/157-modul-paket-tracking/releases" target="_blank"><b>https://github.com/zencartpro/157-modul-paket-tracking/releases</b></a></p>
 </div>
