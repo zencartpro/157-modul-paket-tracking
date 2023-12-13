@@ -27,14 +27,14 @@
         $db->Execute($sql);
     }
 // delete unused config settings
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART1%')");  
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART2%')"); 
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART3%')"); 
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART4%')"); 
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART1%')");  
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART2%')"); 
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART3%')"); 
-$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART4%')"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART1%'");  
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART2%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART3%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART4%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART1%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART2%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART3%'"); 
+$db->Execute("DELETE FROM ".TABLE_CONFIGURATION_LANGUAGE." WHERE configuration_key LIKE '%CARRIER_LINK_6_PART4%'"); 
 // insert normal tracking link 6
 $db->Execute(" SELECT @gid:=configuration_group_id
 FROM ".TABLE_CONFIGURATION_GROUP."
