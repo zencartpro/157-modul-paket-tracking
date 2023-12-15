@@ -6,7 +6,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_account_history_info_default.php for Paket Tracking 2023-12-13 12:40:47Z webchills $
+ * @version $Id: tpl_account_history_info_default.php for Paket Tracking 2023-12-15 09:40:47Z webchills $
  */
 ?>
 <div class="centerColumn" id="accountHistInfo">
@@ -125,7 +125,7 @@ if (!empty($order->statuses)) {
 			$display_track_id .= (empty($statuses['track_id3']) ? '' : "" . CARRIER_NAME_3 . "" . ":<br/><a href=" . CARRIER_LINK_3 . nl2br(zen_output_string_protected($statuses['track_id3'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id3'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id4']) ? '' : "" . CARRIER_NAME_4 . "" . ":<br/><a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($statuses['track_id4'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id4'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id5']) ? '' : "" . CARRIER_NAME_5 . "" . ":<br/><a href=" . CARRIER_LINK_5 . nl2br(zen_output_string_protected($statuses['track_id5'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id5'])) . "</a>" );
-			$display_track_id .= (empty($statuses['track_id6']) ? '' : "" . CARRIER_NAME_6 . "" . ":<br/><a href=" . CARRIER_LINK_6_PART1 . nl2br(zen_output_string_protected($statuses['track_id6'])) . CARRIER_LINK_6_PART2 . nl2br(zen_output_string_protected($statuses['track_day'])) . CARRIER_LINK_6_PART3 . nl2br(zen_output_string_protected($statuses['track_month'])) . CARRIER_LINK_6_PART4 . nl2br(zen_output_string_protected($statuses['track_year'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id6'])) . "</a>" );
+			$display_track_id .= (empty($statuses['track_id6']) ? '' : "" . CARRIER_NAME_6 . "" . ":<br/><a href=" . CARRIER_LINK_6 . nl2br(zen_output_string_protected($statuses['track_id6'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id6'])) . "</a>" );
 		
 			?><?php echo $display_track_id; ?></td>
 			<!-- End Paket Tracking  -->
