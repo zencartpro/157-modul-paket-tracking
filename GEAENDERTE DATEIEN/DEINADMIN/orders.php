@@ -1,11 +1,11 @@
 <?php
 /**
  * Zen Cart German Specific (158 code in 157 / zencartpro adaptations)
- * @copyright Copyright 2003-2023 Zen Cart Development Team
+ * @copyright Copyright 2003-2024 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2023-12-13 13:43:51Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2024-02-18 12:06:51Z webchills $
  */
 require('includes/application_top.php');
 
@@ -223,7 +223,7 @@ if (!empty($action) && $order_exists === true) {
       }
       break;
     case 'update_order':
-      $oID = zen_db_prepare_input($_GET['oID']);
+    
 // Begin Paket Tracking
         $track_id1 = !empty($_POST['track_id1']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id1'])) : ''; 
         $track_id2 = !empty($_POST['track_id2']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id2'])) : ''; 
@@ -231,8 +231,6 @@ if (!empty($action) && $order_exists === true) {
         $track_id4 = !empty($_POST['track_id4']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id4'])) : ''; 
         $track_id5 = !empty($_POST['track_id5']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id5'])) : ''; 
         $track_id6 = !empty($_POST['track_id6']) ? str_replace(" ", "", zen_db_prepare_input($_POST['track_id6'])) : '';  
-        
-        
 // End Paket Tracking
       $comments = !empty($_POST['comments']) ? zen_db_prepare_input($_POST['comments']) : '';
       $admin_language = zen_db_prepare_input($_POST['admin_language'] ?? $_SESSION['languages_code']);
@@ -256,11 +254,6 @@ if (!empty($action) && $order_exists === true) {
       $status_updated = zen_update_orders_history($oID, $comments, $updated_by, $status, $customer_notified, $email_include_message);
 // END PAKET TRACKING
       $order_updated = ($status_updated > 0);
-      $check_status = $db->ExecuteNoCache("SELECT customers_name, customers_email_address, orders_status, date_purchased
-                                    FROM " . TABLE_ORDERS . "
-                                    WHERE orders_id = " . (int)$oID . "
-                                    LIMIT 1"
-                                    );
 
       // trigger any appropriate updates which should be sent back to the payment gateway:
       if ($order->info['payment_module_code']) {
@@ -648,7 +641,15 @@ if (!empty($action) && $order_exists === true) {
               </tr>
               <tr>
                 <td class="noprint"><strong><?php echo ENTRY_CUSTOMER; ?></strong></td>
-                <td class="noprint"><?php echo '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'search=' . $order->customer['email_address'], 'SSL') . '">' . TEXT_CUSTOMER_LOOKUP . '</a>'; ?></td>
+                <td class="noprint">
+                  <?php 
+                  if ($order->customer['id'] == 0) { 
+                       echo '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'search=' . $order->customer['email_address'], 'SSL') . '">' . TEXT_CUSTOMER_LOOKUP . '</a>'; 
+                  } else {
+                       echo '<a href="' . zen_href_link(FILENAME_CUSTOMERS, 'cID=' . $order->customer['id'], 'SSL') . '">' . TEXT_CUSTOMER_LOOKUP . '</a>'; 
+                  }
+                  ?>
+                </td>
               </tr>
             </table>
           </div>
