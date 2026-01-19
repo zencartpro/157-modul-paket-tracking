@@ -6,7 +6,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_account_history_info_default.php for Paket Tracking 2023-12-15 09:40:47Z webchills $
+ * @version $Id: tpl_account_history_info_default.php for Paket Tracking 2026-01-19 15:40:47Z webchills $
  */
 ?>
 <div class="centerColumn" id="accountHistInfo">
@@ -119,11 +119,17 @@ if (!empty($order->statuses)) {
         <!-- Begin Paket Tracking -->
 		<td>
          <?php
+      $postcode_query = "SELECT delivery_postcode
+                          FROM " . TABLE_ORDERS . "
+                          WHERE orders_id = " . $_GET['order_id'] . "";
+                          
+      $delivery_postcode = $db->Execute($postcode_query);  
+      $plz = $delivery_postcode -> fields['delivery_postcode'];
 			$display_track_id = '';
 			$display_track_id .= (empty($statuses['track_id1']) ? '' : "" . CARRIER_NAME_1 . "" . ":<br/><a href=" . CARRIER_LINK_1 . nl2br(zen_output_string_protected($statuses['track_id1'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id1'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id2']) ? '' : "" . CARRIER_NAME_2 . "" . ":<br/><a href=" . CARRIER_LINK_2 . nl2br(zen_output_string_protected($statuses['track_id2'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id2'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id3']) ? '' : "" . CARRIER_NAME_3 . "" . ":<br/><a href=" . CARRIER_LINK_3 . nl2br(zen_output_string_protected($statuses['track_id3'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id3'])) . "</a>" );
-			$display_track_id .= (empty($statuses['track_id4']) ? '' : "" . CARRIER_NAME_4 . "" . ":<br/><a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($statuses['track_id4'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id4'])) . "</a>" );
+			$display_track_id .= (empty($statuses['track_id4']) ? '' : "" . CARRIER_NAME_4 . "" . ":<br/><a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($statuses['track_id4'])) . '/postalcode/' . $plz . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id4'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id5']) ? '' : "" . CARRIER_NAME_5 . "" . ":<br/><a href=" . CARRIER_LINK_5 . nl2br(zen_output_string_protected($statuses['track_id5'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id5'])) . "</a>" );
 			$display_track_id .= (empty($statuses['track_id6']) ? '' : "" . CARRIER_NAME_6 . "" . ":<br/><a href=" . CARRIER_LINK_6 . nl2br(zen_output_string_protected($statuses['track_id6'])) . ' target="_blank">' . nl2br(zen_output_string_protected($statuses['track_id6'])) . "</a>" );
 		

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Paket Tracking 3.0.1 für Zen-Cart 1.5.7 deutsch</title>
+<title>Paket Tracking 3.0.2 für Zen-Cart 1.5.7 deutsch</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="content-language" content="de">
@@ -12,7 +12,7 @@
 <body>
 <div id="wrapper">
 <div id="header">
-<h1>Paket Tracking 3.0.1 für Zen Cart 1.5.7 deutsch</h1>
+<h1>Paket Tracking 3.0.2 für Zen Cart 1.5.7 deutsch</h1>
 </div>
 
 <div id="slidetabsmenu" style="display: none;">
@@ -47,6 +47,9 @@ Für den Kunden enthält die Bestellhistory ebenfalls den Trackinglink.<br/>
 Die Suche in der Administration unter Kunden > Bestellungen sucht in einem eigenen Suchfeld nach eingegebenen Trackingnummern.
 <br>
 Das Modul ist vollständig multilingual, sowohl im Admin als auch im Frontend. <br>
+<br>
+Changelog 3.0.2:<br>
+- Anpassungen für neuen GLS Tracking Link mit Postleitzahl<br>
 <br>
 Changelog 3.0.1:<br>
 - Anpassungen für 1.5.7h<br>
@@ -115,11 +118,11 @@ Changelog 2.7.3:<br>
   </p>
 <h3>Copyright,  Lizenz</h3>
 <p>Copyright dieser deutschen Anpassung/Anleitung für Zen Cart 1.5.7 deutsch<br>
-(c) 2016-2024 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)<br>
+(c) 2016-2026 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)<br>
 <br>
 Modifikation des Moduls <a href="https://www.zen-cart.com/downloads.php?do=file&id=75" target="_blank">Ty Package Tracker</a> von Ty Lieu </p>
 <p> Portions Copyright (c) 2003 osCommerce<br>
-  Portions Copyright     (c) 2003-2024 Zen Cart</p>
+  Portions Copyright     (c) 2003-2026 Zen Cart</p>
 <p>This contribution is subject to version 3.0 of the GPL license available through the world-wide-web at the following url:<br>
   <a href="http://www.zen-cart-pro.at/license/3_0.txt">http://www.zen-cart-pro.at/license/3_0.txt</a></p>
 </div>
@@ -135,10 +138,10 @@ Modifikation des Moduls <a href="https://www.zen-cart.com/downloads.php?do=file&
 <h2>Installation</h2>
 <h3>Voraussetzungen</h3>
   <br>
-  Dieses Modul ist<strong> nur für die deutsche Zen Cart 1.5.7h Version geeignet</strong></p>
+  Dieses Modul ist<strong> nur für die deutsche Zen Cart 1.5.7j Version geeignet</strong></p>
   <br>
-  Stellen Sie sicher, dass Sie Ihren Shop auf 1.5.7h aktualisiert haben, bevor Sie dieses Modul installieren.<br>
-  Die mitgelieferten geänderten Dateien dieses Moduls sind auf dem Stand von 1.5.7h!
+  Stellen Sie sicher, dass Sie Ihren Shop auf 1.5.7j aktualisiert haben, bevor Sie dieses Modul installieren.<br>
+  Die mitgelieferten geänderten Dateien dieses Moduls sind auf dem Stand von 1.5.7j!
   <br><br/>
   <strong>WICHTIG:</strong><br>
    
@@ -203,7 +206,7 @@ Dadurch werden keine bestehenden Dateien überschrieben</p>
   <br>
   Beispiel:<br>
   Diese Bestellung haben Sie mit DPD ausgeliefert und die Trackingnummer ist 06210008745645A<br>
-  Tragen Sie die Trackingnummer    im Feld Tracking ID beim Versandunternehmen DPD ein.<br>
+  Tragen Sie die Trackingnummer im Feld Tracking ID beim Versandunternehmen DPD ein.<br>
   Lassen Sie die Felder "Kundenbenachrichtigung"  angekreuzt.<br>
   Stellen Sie dann beim Status auf den Status um, den Sie beim Verschicken verwenden, z.B. "verschickt"<br>
   Wenn Sie dann auf "aktualisieren" clicken bekommt der Kunde das   normale Bestellstatusupdatemail, das zusätzlich die Tracking Nummer und   auch einen Link    zum direkten Tracken dieser ID auf der DPD Website enthält:<br>
@@ -212,6 +215,9 @@ Dadurch werden keine bestehenden Dateien überschrieben</p>
   Wenn Sie das Feld "Kunde wurde benachrichtigt - Email" nicht ankreuzen wird kein   Statusupdatemail verschickt, die Trackingnummer und der Link sind aber   für den Kunden in der Bestellhistorie ersichtlich.<br>
   Wenn Sie einen speziellen Kommentar hinzufügen möchten, schreiben Sie wie gewohnt ins   Textfeld. <br>
   Das Feld &quot;Weitere Kommentare&quot; lassen Sie in jedem Fall angekreuzt!</p>
+  <p><b>Wichtiger Hinweis für GLS</b>:<br>
+  Seit Version 3.0.2 ist für GLS der neue Trackinglink https://gls-group.eu/track/ hinterlegt. Das Modul liest für GLS die Postleitzahl aus der Bestellung aus (delivery_postcode) und ergänzt den Trackinglink damit.<br>Achten Sie darauf, dass GLS immer als Versanddienstleister 4 hinterlegt ist und der Trackinglink für Versanddienstleister 4 https://gls-group.eu/track/ lautet.<br>Wenn Sie von einer älteren Version des Moduls aktualisiert haben, prüfen Sie unbedingt Ihre Einstellungen für Versanddienstleister 4!
+  </p>
   </div>
 </div>
 </div>

@@ -1,11 +1,11 @@
 <?php
 /**
  * Zen Cart German Specific (158 code in 157 / zencartpro adaptations)
- * @copyright Copyright 2003-2024 Zen Cart Development Team
+ * @copyright Copyright 2003-2026 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: orders.php for Paket Tracking 2024-02-18 12:06:51Z webchills $
+ * @version $Id: orders.php for Paket Tracking 2026-01-19 15:06:51Z webchills $
  */
 require('includes/application_top.php');
 
@@ -969,11 +969,17 @@ if (!empty($action) && $order_exists === true) {
                     <td><?php echo $orders_status_array[$item['orders_status_id']]; ?></td>
               <?php
 // BEGIN PAKET TRACKING ----------------
+$postcode_query = "SELECT delivery_postcode
+                          FROM " . TABLE_ORDERS . "
+                          WHERE orders_id = " . $oID . "";
+                          
+$delivery_postcode = $db->Execute($postcode_query);  
+$plz = $delivery_postcode -> fields['delivery_postcode'];
         $display_track_id = '&nbsp;';
 	$display_track_id .= (empty($orders_history->fields['track_id1']) ? '' : CARRIER_NAME_1 . ": <a href=" . CARRIER_LINK_1 . nl2br(zen_output_string_protected($orders_history->fields['track_id1'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id1'])) . "</a>&nbsp;" );
 	$display_track_id .= (empty($orders_history->fields['track_id2']) ? '' : CARRIER_NAME_2 . ": <a href=" . CARRIER_LINK_2 . nl2br(zen_output_string_protected($orders_history->fields['track_id2'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id2'])) . "</a>&nbsp;" );
 	$display_track_id .= (empty($orders_history->fields['track_id3']) ? '' : CARRIER_NAME_3 . ": <a href=" . CARRIER_LINK_3 . nl2br(zen_output_string_protected($orders_history->fields['track_id3'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id3'])) . "</a>&nbsp;" );
-	$display_track_id .= (empty($orders_history->fields['track_id4']) ? '' : CARRIER_NAME_4 . ": <a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . "</a>&nbsp;" );
+	$display_track_id .= (empty($orders_history->fields['track_id4']) ? '' : CARRIER_NAME_4 . ": <a href=" . CARRIER_LINK_4 . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . '/postalcode/' . $plz . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id4'])) . "</a>&nbsp;" );
 	$display_track_id .= (empty($orders_history->fields['track_id5']) ? '' : CARRIER_NAME_5 . ": <a href=" . CARRIER_LINK_5 . nl2br(zen_output_string_protected($orders_history->fields['track_id5'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id5'])) . "</a>&nbsp;" );
  	$display_track_id .= (empty($orders_history->fields['track_id6']) ? '' : CARRIER_NAME_6 . ": <a href=" . CARRIER_LINK_6 . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . ' target="_blank">' . nl2br(zen_output_string_protected($orders_history->fields['track_id6'])) . "</a>&nbsp;" );
         echo '            <td>' . $display_track_id . '</td>' . "\n";

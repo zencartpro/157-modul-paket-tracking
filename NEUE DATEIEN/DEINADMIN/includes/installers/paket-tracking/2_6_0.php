@@ -1,10 +1,10 @@
 <?php
 /**
  * @package Paket Tracking
- * @copyright Copyright 2003-2022 Zen Cart Development Team
+ * @copyright Copyright 2003-2026 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: 2_6_0.php  2023-12-13 19:19:51Z webchills $
+ * @version $Id: 2_6_0.php  2026-01-19 16:19:51Z webchills $
  */
  
 $db->Execute(" SELECT @gid:=configuration_group_id
@@ -24,8 +24,8 @@ $db->Execute("INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_title, c
 ('Package Tracking - Carrier 3 Name', 'CARRIER_NAME_3', 'UPS', 'Enter name of Carrier 3 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: USPS)', @gid, 8, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 3 Tracking Link', 'CARRIER_LINK_3', 'https://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displ ayed=1&TypeOfInquiryNumber=T&loc=de_DE&InquiryNumber1=', 'Enter the tracking link of Carrier 3<br /> <br /><strong>Example:</strong>http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displ ayed=1&TypeOfInquiryNumber=T&loc=de_DE&InquiryNumber1=', @gid, 9, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 4 Status', 'CARRIER_STATUS_4', 'False', 'Enable Tracking for Carrier 4<br /><br />Set to false if you do NOT want Carrier 4 to be displayed on Admin and Customer page.', @gid, 10, now(), now(), NULL, 'zen_cfg_select_option(array(\'True\', \'False\'),'),
-('Package Tracking - Carrier 4 Name', 'CARRIER_NAME_4', 'GLS', 'Enter name of Carrier 4 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: blank)', @gid, 11, now(), now(), NULL, NULL),
-('Package Tracking - Carrier 4 Tracking Link', 'CARRIER_LINK_4', 'https://gls-group.eu/AT/de/paket-verfolgen?match=', 'Enter the tracking link of Carrier 4<br /> <br /><strong>Example:</strong> http://tracking.hlg.de/Tracking.jsp?TrackID=', @gid, 12, now(), now(), NULL, NULL),
+('Package Tracking - Carrier 4 Name', 'CARRIER_NAME_4', 'GLS', 'Enter name of Carrier 4 <br /> <br /><strong>This has to be GLS!</strong><br />(default: GLS)', @gid, 11, now(), now(), NULL, NULL),
+('Package Tracking - Carrier 4 Tracking Link', 'CARRIER_LINK_4', 'https://gls-group.eu/track/', 'Enter the tracking link for GLS<br /> <br /><strong>MUST BE:</strong> https://gls-group.eu/track/', @gid, 12, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 5 Status', 'CARRIER_STATUS_5', 'False', 'Enable Tracking for Carrier 5<br /><br />Set to false if you do NOT want Carrier 5 to be displayed on Admin and Customer page.', @gid, 13, now(), now(), NULL, 'zen_cfg_select_option(array(\'True\', \'False\'),'),
 ('Package Tracking - Carrier 5 Name', 'CARRIER_NAME_5', 'Post Austria', 'Enter name of Carrier 5 <br /> <br /><strong>Example:</strong> FedEx, UPS, Canada Post, etc...<br />(default: blank)', @gid, 14, now(), now(), NULL, NULL),
 ('Package Tracking - Carrier 5 Tracking Link', 'CARRIER_LINK_5', 'https://www.post.at/sendungsverfolgung.php/details?pnum1=', 'Enter the tracking link of Carrier 5<br /> <br /><strong>Example:</strong> http://www.post.at/tnt_query.php?pnum1=', @gid, 15, now(), now(), NULL, NULL),
@@ -45,8 +45,8 @@ $db->Execute("REPLACE INTO ".TABLE_CONFIGURATION_LANGUAGE." (configuration_title
 ('Paket Tracking - Versandunternehmen 3 Name', 'CARRIER_NAME_3', 'Geben Sie den Namen von Versandunternehmen 3 ein <br />Beispiel: DHL, GLS, DPD, Post Austria, Deutsche Post, etc...<br />(Voreingestellt: UPS)', 43),
 ('Paket Tracking - Versandunternehmen 3 Tracking Link', 'CARRIER_LINK_3', 'Geben Sie den Tracking Link von Versandunternehmen 3 ein.<br /> Beispiel: http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displ ayed=1&TypeOfInquiryNumber=T&loc=de_DE&InquiryNumber1=', 43),
 ('Paket Tracking - Versandunternehmen 3 Status', 'CARRIER_STATUS_3', 'Wollen Sie das Tracking für Versandunternehmen 3 aktivieren?<br />Auf false setzen, wenn Sie NICHT wollen, dass Versandunternehmen 3 auf der Admin- und der Kundenseite erscheint.', 43),
-('Paket Tracking - Versandunternehmen 4 Name', 'CARRIER_NAME_4', 'Geben Sie den Namen von Versandunternehmen 4 ein <br />Beispiel: DHL, GLS, DPD, Post Austria, Deutsche Post, etc...<br />(Voreingestellt: Hermes)', 43),
-('Paket Tracking - Versandunternehmen 4 Tracking Link', 'CARRIER_LINK_4','Geben Sie den Tracking Link von Versandunternehmen 4 ein.<br /> Beispiel: http://tracking.hlg.de/Tracking.jsp?TrackID=', 43),
+('Paket Tracking - Versandunternehmen 4 Name', 'CARRIER_NAME_4', 'Geben Sie den Namen von Versandunternehmen 4 ein <br />Dieses Feld ist für GLS reserviert, da GLS einen speziellen Trackinglink verwendet. Ihr Versanddienstleister 4 muss also immer GLS sein!<br />(Voreingestellt: GLS)', 43),
+('Paket Tracking - Versandunternehmen 4 Tracking Link', 'CARRIER_LINK_4','Geben Sie den Tracking Link von Versandunternehmen 4 ein.<br /> Reserviert für GLS, der Link MUSS sein:<br>https://gls-group.eu/track/', 43),
 ('Paket Tracking - Versandunternehmen 4 Status', 'CARRIER_STATUS_4', 'Wollen Sie das Tracking für Versandunternehmen 4 aktivieren?<br />Auf false setzen, wenn Sie NICHT wollen, dass Versandunternehmen 4 auf der Admin- und der Kundenseite erscheint.', 43),
 ('Paket Tracking - Versandunternehmen 5 Name', 'CARRIER_NAME_5', 'Geben Sie den Namen von Versandunternehmen 5 ein <br />Beispiel: DHL, GLS, DPD, Post Austria, Deutsche Post, etc...<br />(Voreingestellt: Post Austria)', 43),
 ('Paket Tracking - Versandunternehmen 5 Tracking Link', 'CARRIER_LINK_5','Geben Sie den Tracking Link von Versandunternehmen 5 ein.<br /> Beispiel: http://www.post.at/sendungsverfolgung.php/details?pnum1=', 43),
